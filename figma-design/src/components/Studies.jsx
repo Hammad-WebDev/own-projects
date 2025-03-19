@@ -8,7 +8,7 @@ const Studies = () => {
                 <p className="sm:text-[1.3vw] sm:w-[47%] w-full text-[3vw] max-sm:text-center">Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies</p>
             </div>
 
-            <div className="card-container flex sm:justify-around sm:gap-0 gap-3 sm:bg-[#191A23] overflow-y-auto px-[3%] py-[5%] mt-[7%] md:rounded-[45px]">
+            <div className="card-container flex sm:justify-around sm:gap-0 gap-3 sm:bg-[#191A23] hide-scrollbar  overflow-y-auto px-[3%] py-[5%] mt-[7%] md:rounded-[45px]">
                 <div className="card bg-[#191A23] sm:rounded-none rounded-4xl sm:w-[24%] max-sm:min-w-full sm:p-0 p-10">
                     <p className='text-white sm:text-[1.2vw] text-[3.3vw]'>For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.</p>
 
