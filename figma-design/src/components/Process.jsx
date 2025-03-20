@@ -1,6 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Process = () => {
+    const [cardIndex, setCardIndex] = useState(null)
+    const data = [
+        {
+            title: "Consultation",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+        {
+            title: "Research and Strategy Development",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+        {
+            title: "Implementation",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+        {
+            title: "Monitoring and Optimization",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+        {
+            title: "Reporting and Communication",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+        {
+            title: "Continual Improvement",
+            des: "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+        },
+    ]
+
+    const handleCardExpand = (index) => {
+        if (cardIndex === index) {
+            setCardIndex(null)
+        } else {
+            setCardIndex(index)
+        }
+    };
+
     return <>
         <div className="process-container px-[7%] my-[10%]">
             <div className="heading flex sm:flex-row flex-col items-center sm:gap-10 gap-7">
@@ -9,80 +45,28 @@ const Process = () => {
             </div>
 
             <div className="card-container mt-[7%]">
+                {data.map((data, index) => {
+                    return <div key={index} className={`card sm:h-[12vw] h-[17vw] w-full mb-7 px-[5%] py-[3%] rounded-[45px] border shadow-[0px_5px_0px_0px_black] transition-all duration-500 ${cardIndex === index ? "bg-[#B9FF66] sm:h-[23vw] h-[70vw]" : "bg-[#F3F3F3]"}`}>
+                        <div className="content flex justify-between items-center w-full font-medium">
+                            <div className="text w-[65%] flex items-center gap-5">
+                                <h2 className='sm:text-[4.3vw] text-[7vw]'>0{index + 1}</h2>
+                                <p className='sm:text-[2.1vw] text-[3vw]'>{data.title}</p>
+                            </div>
 
-                <div className="card w-full mb-7 sm:bg-[#B9FF66] bg-[#F3F3F3] sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                    <div className="content flex justify-between items-center w-full font-medium">
-                        <div className="text w-[65%] flex items-center gap-5">
-                            <h2 className='sm:text-[4.3vw] text-[7vw]'>01</h2>
-                            <p className='sm:text-[2.1vw] text-[3vw]'>Consultation</p>
+                            <div onClick={() => handleCardExpand(index)} className="plus-icon sm:w-[5vw] w-[10vw] z-[1] cursor-pointer">
+                                {cardIndex === index ? <img className='sm:w-full w-full' src="minus-icon.png" alt="" /> : <img className='sm:w-full w-full' src="plus-icon.png" alt="" />}
+                            </div>
                         </div>
 
-                        <div className="plus-icon">
-                            <img className='sm:w-full w-[50%]' src="minus-icon.png" alt="" />
+                        <div className={`line-and-dec duration-400 ${cardIndex === index ? "opacity-100" : "opacity-0"}`}>
+                            <div className="line bg-black mt-5 w-full h-[1px]"></div>
+                            <p className='sm:text-[1.3vw] text-[3.5vw] mt-7'>{data.des}</p>
                         </div>
+
                     </div>
-
-                    <div className="line bg-black mt-5 w-full h-[1px] sm:block hidden"></div>
-
-                    <p className='text-[1.3vw] mt-7 sm:block hidden'>During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.</p>
-                </div>
+                })}
 
 
-
-                <div className="card w-full mb-7 bg-[#F3F3F3] flex justify-between items-center gap-5 sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                    <div className="content w-[65%] flex items-center gap-5 font-medium">
-                        <h2 className='sm:text-[4.3vw] text-[7vw]'>02</h2>
-                        <p className='sm:text-[2.1vw] text-[3vw]'>Research and Strategy Development</p>
-                    </div>
-
-                    <div className="plus-icon">
-                        <img className='sm:w-full w-[50%]' src="plus-icon.png" alt="" />
-                    </div>
-                </div>
-
-                <div className="card w-full mb-7 bg-[#F3F3F3] flex justify-between items-center gap-5 sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                    <div className="content w-[65%] flex items-center gap-5 font-medium">
-                        <h2 className='sm:text-[4.3vw] text-[7vw]'>03</h2>
-                        <p className='sm:text-[2.1vw] text-[3vw]'>Implementation</p>
-                    </div>
-
-                    <div className="plus-icon">
-                        <img className='sm:w-full w-[50%]' src="plus-icon.png" alt="" />
-                    </div>
-                </div>
-
-                <div className="card w-full mb-7 bg-[#F3F3F3] flex justify-between items-center gap-5 sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                    <div className="content w-[65%] flex items-center gap-5 font-medium">
-                        <h2 className='sm:text-[4.3vw] text-[7vw]'>04</h2>
-                        <p className='sm:text-[2.1vw] text-[3vw]'>Monitoring and Optimization</p>
-                    </div>
-
-                    <div className="plus-icon">
-                        <img className='sm:w-full w-[50%]' src="plus-icon.png" alt="" />
-                    </div>
-                </div>
-
-                <div className="card w-full mb-7 bg-[#F3F3F3] flex justify-between items-center gap-5 sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                    <div className="content w-[65%] flex items-center gap-5 font-medium">
-                        <h2 className='sm:text-[4.3vw] text-[7vw]'>05</h2>
-                        <p className='sm:text-[2.1vw] text-[3vw]'>Reporting and Communication</p>
-                    </div>
-
-                    <div className="plus-icon">
-                        <img className='sm:w-full w-[50%]' src="plus-icon.png" alt="" />
-                    </div>
-                </div>
-            </div>
-
-            <div className="card w-full mb-7 bg-[#F3F3F3] flex justify-between items-center gap-5 sm:px-[5%] pl-[5%] sm:py-[3%] py-[7%]  rounded-[45px] border shadow-[0px_5px_0px_0px_black]">
-                <div className="content w-[65%] flex items-center gap-5 font-medium">
-                    <h2 className='sm:text-[4.3vw] text-[7vw]'>06</h2>
-                    <p className='sm:text-[2.1vw] text-[3vw]'>Continual Improvement</p>
-                </div>
-
-                <div className="plus-icon">
-                    <img className='sm:w-full w-[50%]' src="plus-icon.png" alt="" />
-                </div>
             </div>
         </div>
     </>

@@ -33,7 +33,10 @@ const Contact = () => {
         setError(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            alert('form submit successfully');
+            alert(`form submit successfully 
+                   name: ${form.name} 
+                   email: ${form.email} 
+                   message: ${form.message}`);
             setForm({ name: "", email: "", message: "" })
         }
     };
